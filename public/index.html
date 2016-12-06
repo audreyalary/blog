@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Le blog</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+
+<style>
+        h1 {
+        text-align: center;
+    }
+
+    .container.block {
+        margin-top: 5%;
+    }
+
+    .card-block {
+        border-top: 3px solid #610806;
+        border-bottom: 3px solid #610806;
+        box-shadow: 1px 1px 1px 1px rgba(50, 50, 50, 1);
+        padding-top: 20px;
+        padding-bottom: 30px;
+        text-align: center;
+    }
+
+    .containeradd {
+        margin-top: 15px;
+        margin-left: 250px;
+    }
+
+    .col-lg-4:hover {
+        box-shadow: 0 0 0px 0 rgba(50, 50, 50, 1);
+        transform: scale(1.050);
+        z-index: 2;
+        &:after,
+        &:before {
+            content: "";
+            position: absolute;
+            background-color: #610806;
+            top: -2px;
+            bottom: -2px;
+            width: 2px;
+        }
+        &:before {
+            left: -2px;
+        }
+        &:after {
+            right: -2px;
+        }
+</style>
+
+</head>
+
+
+<body>
+
+
+
+    <h1>{{'Blog'}} </h1>
+
+ <blog></blog>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+
+
+
+<script src="components/blog.md.js"></script>
+<script src="components/blog.js"></script>
+
+<script src="services/services.md.js"></script>
+<script src="services/blogService.js"></script>
+
+<script src="app.js"></script>
+
+
+</html>

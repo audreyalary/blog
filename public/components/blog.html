@@ -1,0 +1,55 @@
+
+    <div class="container block">
+        <div class="container" ng-if="!$ctrl.blog">
+            <div class="row">
+                <div class="card col-lg-4" ng-repeat="blog in $ctrl.blogs | limitTo:3">
+                    <div class="card-block">
+                        <th scope="row"> {{$index+1}} </th>
+
+                        <span>
+                        <h4 class="card-title" ng-show="!blog.showEdit">{{blog.title}}</h4>
+                        <input ng-show="blog.showEdit" type="text" ng-model="blog.title" class="form-control">
+                      </span>
+
+                        <span>
+                        <p class="card-text" ng-show="!blog.showEdit">{{blog.content | limitTo:200}}</p>
+                        <input ng-show="blog.showEdit" type="text" ng-model="blog.content" class="form-control">
+                      </span>
+                        </br>
+                        <a href="#" ng-click="$ctrl.display(blog, $index)" class="btn btn-primary btn-lg">Lire la suite</a>
+                        <button type="button" name="button" class="btn btn-primary btn-lg" ng-click="$ctrl.delete(blog, $index)"> Supprimer</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="containeradd">
+                    <button type="button" name="button" class="btn btn-primary col-xs-8" ng-click="$ctrl.add()">Ajouter</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="container block">
+            <div class="row" ng-if="$ctrl.blog">
+                <a ng-click="$ctrl.blog = null" class="add-article text-align"> retour </a>
+
+                <p scope="row"> {{$index}} </p>
+                <h2 ng-if="!$ctrl.blog.editMode && !$ctrl.blog.addMode">{{$ctrl.blog.title}}</h2>
+                <input ng-if="$ctrl.blog.editMode || $ctrl.blog.addMode" type="text" ng-model="$ctrl.blog.title" class="form-control">
+                <cite class="col-md-12">Par {{$ctrl.blog.author}} le {{$ctrl.blog.createdAt | date}}</cite>
+
+                <p ng-if="!$ctrl.blog.editMode && !$ctrl.blog.addMode">{{$ctrl.blog.content}}</p>
+                <input ng-if="$ctrl.blog.editMode || $ctrl.blog.addMode" type="text" ng-model="$ctrl.blog.content" class="form-control">
+
+
+                <button class="btn btn-warning" ng-click="$ctrl.edit()"><i class="glyphicon glyphicon-pencil"></i></button>
+                <button class="btn btn-success" ng-click="$ctrl.saveNew()"><i class="glyphicon glyphicon-ok"></i></button>
+                <button class="btn btn-warning" ng-click="$ctrl.cancel()"> Annuler </button>
+
+
+            </div>
+        </div>
+
+    </div>
